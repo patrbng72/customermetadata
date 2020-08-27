@@ -1,0 +1,20 @@
+---
+- name: Clean up lab environment by deleting resource groups
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: create resource group
+    azure_rm_resourcegroup:
+      name: stxcustmetadata
+      location: eastus
+      tags:
+        CreatedBy: "Patrick Bingham"
+        CreatedOn: "8/21/2020"
+        Environment: "Lab"
+        Purpose: "Infrastructure"
+  - name: create a storage account with table
+    azure_rm_storageaccount:
+      name: stxcustmetadata
+      resource_group: stxcustmetadata
+      type: Standard_RAGRS
+    
