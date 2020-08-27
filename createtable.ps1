@@ -1,3 +1,9 @@
+Connect-AzAccount
+
+$subscriptionName = "Puebla Cloud Team Lab"
+
+Select-AzSubscription -Subscription $subscriptionName
+
 $resourcegroup = "stxcustmetadata"
 $storageaccount = "stxcustmetadata"
 
